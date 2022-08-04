@@ -16,6 +16,26 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/LoginView.vue')
+  },
+  {
+    path: '/forgot-password',
+    name: 'forgot-password',
+    component: () => import(/* webpackChunkName: "forgot-password" */ '../views/password/ForgotPasswordView.vue')
+  },
+  {
+    path: '/password-token',
+    name: 'password-token',
+    component: () => import(/* webpackChunkName: "password-token" */ '../views/password/TokenPasswordView.vue')
+  },
+  {
+    path: '/change-password',
+    name: 'change-password',
+    component: () => import(/* webpackChunkName: "change-password" */ '../views/password/ChangePasswordView.vue')
+  },
+  {
     path: '/blog/new',
     name: 'blog-create',
     component: () => import(/* webpackChunkName: "blog-create" */ '../views/blog/CreateBlogView.vue')

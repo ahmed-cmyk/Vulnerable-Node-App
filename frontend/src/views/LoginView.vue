@@ -39,7 +39,7 @@ export default {
     },
     computed: {
         myToken() { 
-            return this.$store.state.token 
+            return this.$store.state.token
         }
     }
 }

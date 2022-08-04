@@ -64,6 +64,9 @@ export default {
             const blog = state.blogs.filter(blog => blog._id === id)
             console.log('blogModule', blog)
             return blog
+        },
+        getBlogs: (state) => {
+            return state.blogs
         }
     }
 }

@@ -6,7 +6,7 @@ const blogsAPI = 'http://localhost:4000/posts'
 export default {
     get: (token) =>
         axios({
-            method: 'POST',
+            method: 'GET',
             url: blogsAPI,
             headers: {
                 'Access-Control-Allow-Origin': '*',
