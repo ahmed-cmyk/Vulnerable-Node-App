@@ -11,7 +11,6 @@
 export default {
   created() {
     this.$store.dispatch('checkLocalStorage')
-    console.log(this.token)
     this.$store.dispatch('getBlogs', this.token)
   },
   computed: {

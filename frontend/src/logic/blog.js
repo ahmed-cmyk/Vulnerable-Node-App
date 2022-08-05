@@ -57,11 +57,10 @@ export default {
             store.dispatch('setErrorMessage', error.response.data['error'])
         })
     ,
-    delete: (id, data, token) =>
+    delete: (id, token) =>
         axios({
             method: 'DELETE',
             url: blogsAPI + `/${id}`,
-            data: data,
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Authorization': token,

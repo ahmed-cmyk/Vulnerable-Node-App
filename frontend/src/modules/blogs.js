@@ -43,12 +43,13 @@ export default {
             const res = await blogs.update(body.id, body, token)
 
             if(res.status === 200) {
-                context.commit('updateBlog', body)
+                context.commit('updateBlog', res.data)
             }
 
             return res.status
         },
         async deleteBlog(context, data) {
+            console.log(data)
             const { id, token } = data
             const res = await blogs.delete(id, token)
 
@@ -62,7 +63,6 @@ export default {
     getters: {
         getBlogById: (state) => (id) => {
             const blog = state.blogs.filter(blog => blog._id === id)
-            console.log('blogModule', blog)
             return blog
         },
         getBlogs: (state) => {
