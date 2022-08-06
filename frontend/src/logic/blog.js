@@ -18,7 +18,6 @@ export default {
         }).catch((error) => {
             console.log(error.response.status)
             console.log(error.response.data)
-            store.dispatch('setErrorMessage', error.response.data['error'])
         })
     ,
     create: (data, token) =>

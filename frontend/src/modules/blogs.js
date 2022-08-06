@@ -23,7 +23,7 @@ export default {
         async getBlogs(context, token) {
             const res = await blogs.get(token)
 
-            if(res.status === 200) {
+            if(res && res.status === 200) {
                 const blogs = res.data
                 context.commit('setBlogs', blogs)
             }

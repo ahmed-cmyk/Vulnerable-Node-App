@@ -1,9 +1,13 @@
 <template>
   <div class="home">
-    <div v-for="blog in blogs" :key="blog._id">
-      <router-link :to="{ name: 'blog-detail', params: { id: blog._id } }">{{ blog.title }}</router-link>
+    <div v-if="blogs.length">
+      <div v-for="blog in blogs" :key="blog._id">
+        <router-link :to="{ name: 'blog-detail', params: { id: blog._id } }">{{ blog.title }}</router-link>
+      </div>
     </div>
-    <div></div>
+    <div v-else>
+      login to view blogs...
+    </div>
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 import user from "@/logic/user"
+import jwt_decode from "jwt-decode";
 
 export default {
     namespace: true,
@@ -12,14 +13,19 @@ export default {
         addToken(state, data) { 
             state.token = data 
         },
+        removeToken(state) {
+            state.token = null
+        },
         setUser(state, data) { 
-            state.user = data 
+            state.user = data
+        },
+        removeUser(state) {
+            state.user = null
         }
     },
     actions: {
         async login(context, creds) {
             const res = await user.login(creds)
-            console.log('userModule', res)
             if(!res) return false
 
             if((res.status === 200) && (res.data.token)) {
@@ -45,6 +51,14 @@ export default {
             }
 
             return false
+        },
+        autoLogin({ state, commit }) {
+            const data = jwt_decode(state.token)
+            commit('setUser', data)
+        },
+        deleteToken({ commit }) {
+            commit('removeToken')
+            commit('removeUser')
         }
     }
 }

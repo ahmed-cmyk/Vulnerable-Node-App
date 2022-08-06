@@ -22,11 +22,12 @@ export default {
     },
     methods: {
         async sendForgetReq() {
-            const { status } = await this.$store.dispatch('makeForgetRequest', { email: this.email })
+            const status  = await this.$store.dispatch('makeForgetRequest', { email: this.email })
             this.$store.dispatch('setMessage', 'Sent password recovery email')
-            
+
             if(status === 200) {
-                this.$router.push({ name: 'reset-password' })
+                this.$router.push({ name: 'password-token' })
+                window.localStorage.setItem('email', this.email)
             }
         }
     }
