@@ -1,6 +1,3 @@
-const mongoose = require("mongoose");
-const Post = require("../models/post.model");
-const { connect } = require("../services/db");
 const connection = require("../services/db");
 
 const get = async (req, res) => {
