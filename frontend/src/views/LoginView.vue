@@ -1,5 +1,5 @@
 <template>
-  <form class="login mx-auto" @submit.prevent="login">
+  <form class="form" @submit.prevent="login">
     <h1 class="font-xl bold">Login</h1>
     <table>
       <tr>

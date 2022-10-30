@@ -23,8 +23,8 @@ app.use("/api/comments", commentsRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
-app.use("/api/forgot-password", forgetRouter);
-app.use("/api/reset-password", resetRouter);
+app.use("/api/forgot", forgetRouter);
+app.use("/api/reset", resetRouter);
 app.use(adminJS.options.rootPath, router);
 
 app.use(errorHandler);

@@ -1,8 +1,8 @@
 <template>
-  <form @submit.prevent="sendForgetReq">
-    <h2>Forgot password</h2>
-    <div class="field">
-      <span class="field-error">{{ error }}</span>
+  <form @submit.prevent="sendForgetReq" class="form">
+    <h1 class="font-xl bold">Forgot password</h1>
+    <div class="field mt-5">
+      <label class="field-label" for="username">email</label>
       <input
         v-model="email"
         class="field-input"
@@ -10,10 +10,10 @@
         name="email"
         autocomplete="off"
         required />
-      <label class="field-label" for="username">email</label>
+      <span class="field-error">{{ error }}</span>
     </div>
     <div class="field">
-      <input class="field-submit" type="submit" value="Submit" />
+      <input class="btn btn-primary" type="submit" value="Submit" />
     </div>
   </form>
 </template>

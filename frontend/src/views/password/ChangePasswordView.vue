@@ -1,30 +1,40 @@
 <template>
-  <form @submit.prevent="updatePassword" v-if="validEmail">
-    <h2>Reset password</h2>
-    <div class="field">
-      <input
-        v-model="validEmail"
-        class="field-input"
-        type="email"
-        name="email"
-        autocomplete="off"
-        disabled />
-      <label class="field-label" for="email">Email</label>
-    </div>
-    <div class="field">
-      <input
-        v-model="password"
-        class="field-input"
-        type="password"
-        name="password"
-        autocomplete="off" />
-      <label class="field-label" for="password">New Password</label>
-    </div>
-    <div class="field">
-      <input class="field-submit" type="submit" value="Submit" />
-    </div>
+  <form @submit.prevent="updatePassword" v-if="validEmail" class="form">
+    <h1 class="font-xl bold">Reset password</h1>
+    <table>
+      <tr>
+        <td>
+          <label class="field-label" for="email">Email</label>
+        </td>
+        <td>
+          <input
+            v-model="validEmail"
+            class="field-input"
+            type="email"
+            name="email"
+            autocomplete="off"
+            disabled />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="field-label" for="password">New Password</label>
+        </td>
+        <td>
+          <input
+            v-model="password"
+            class="field-input"
+            type="password"
+            name="password"
+            autocomplete="off" />
+        </td>
+      </tr>
+    </table>
+    <input class="btn btn-primary" type="submit" value="Submit" />
   </form>
-  <div class="field" v-else>Email is missing</div>
+  <div class="field text-align-center mt-10 font-xl bold" v-else>
+    Email is missing
+  </div>
 </template>
 
 <script>

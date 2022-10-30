@@ -20,3 +20,11 @@
 .font-subheading {
   font-size: 1.1rem;
 }
+
+// Alignment
+
+.text-align {
+  &-center {
+    text-align: center;
+  }
+}

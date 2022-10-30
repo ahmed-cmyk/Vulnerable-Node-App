@@ -1,7 +1,8 @@
 <template>
-  <form @submit.prevent="checkToken">
-    <h2>Input token</h2>
-    <div class="field">
+  <form @submit.prevent="checkToken" class="form">
+    <h1 class="font-xl bold">Input token</h1>
+    <div class="field mt-5">
+      <label class="field-label" for="token">token</label>
       <input
         v-model="token"
         class="field-input"
@@ -9,10 +10,9 @@
         name="token"
         autocomplete="off"
         required />
-      <label class="field-label" for="token">token</label>
     </div>
     <div class="field">
-      <input class="field-submit" type="submit" value="submit" />
+      <input class="btn btn-primary" type="submit" value="submit" />
     </div>
   </form>
 </template>

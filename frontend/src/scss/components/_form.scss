@@ -11,3 +11,26 @@ textarea {
   margin-right: auto;
   width: 100%;
 }
+
+.form {
+  background: $very-light-gray;
+  border-radius: 5px;
+  min-width: 500px;
+  margin: 2rem auto 0;
+  width: 80vw;
+  padding: 10rem;
+  text-align: center;
+
+  & table {
+    margin: 1.2em auto;
+  }
+
+  & label {
+    margin-right: 10px;
+  }
+
+  & input:not(input[type="submit"]) {
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}

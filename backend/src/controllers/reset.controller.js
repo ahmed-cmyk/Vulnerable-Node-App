@@ -1,20 +1,24 @@
-const resetRouter = require('express').Router()
-const User = require('../models/user.model')
+const resetRouter = require("express").Router();
+const connection = require("../services/db");
+const User = require("../models/user.model");
 
-resetRouter.patch('/', async (req, res) => {
-    const { email, password } = req.body
+resetRouter.patch("/", async (req, res) => {
+  const { email, password } = req.body;
 
-    let user = await User.findOneAndUpdate({ email: email }, { password: password }, { new: true })
+  await connection.query(
+    "UPDATE users SET password = ? WHERE email = ?",
+    [password, email],
+    (error, user, fields) => {
+      if (error) {
+        return res.status(400).json({
+          error,
+          errorText: "An unknown error occured",
+        });
+      }
 
-    if(!user) {
-        return res
-                .status(400)
-                .json({ error: 'User not found' })
+      return res.status(200).json(user);
     }
+  );
+});
 
-    return res
-            .status(200)
-            .json(user)
-})
-
-module.exports = resetRouter
+module.exports = resetRouter;
