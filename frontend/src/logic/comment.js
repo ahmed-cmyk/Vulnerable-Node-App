@@ -1,40 +1,39 @@
 import axios from "axios";
 import store from "@/store/index";
 
-const forgotAPI = "http://localhost:4000/api/forgot";
-const resetAPI = "http://localhost:4000/api/reset";
+const commentAPI = "http://localhost:4000/api/comments";
 
 export default {
-  forgotPasswordRequest: (email) =>
+  get: (blog_id) =>
     axios({
-      method: "POST",
-      url: forgotAPI,
-      data: email,
+      method: "GET",
+      url: commentAPI + `/${blog_id}`,
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-type": "application/json",
       },
     })
       .then((res) => {
-        return res;
+        return res.data;
       })
       .catch((error) => {
         console.log(error.response.status);
         console.log(error.response.data);
-        store.dispatch("setErrorMessage", error.response.data["error"]);
       }),
-  changePasswordRequest: (data) =>
+  create: (data, token) =>
     axios({
-      method: "PATCH",
-      url: resetAPI,
+      method: "POST",
+      url: commentAPI + "/store",
       data: data,
       headers: {
         "Access-Control-Allow-Origin": "*",
+        Authorization: token,
         "Content-type": "application/json",
       },
     })
       .then((res) => {
-        return res;
+        console.log("res", res);
+        return res.data;
       })
       .catch((error) => {
         console.log(error.response.status);

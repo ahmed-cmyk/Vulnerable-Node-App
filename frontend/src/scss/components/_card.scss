@@ -1,0 +1,15 @@
+.card {
+  border: 1px solid black;
+  border-radius: 0.2rem;
+
+  & > * {
+    padding: 0.2rem 0.5rem;
+  }
+
+  & *.font-heading,
+  & *.font-subheading {
+    background: #000;
+    color: #fff;
+    padding: 0.5em;
+  }
+}

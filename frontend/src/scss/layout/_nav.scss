@@ -1,0 +1,35 @@
+nav {
+  align-items: flex-end;
+  background: #000;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+
+  & a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  & a:nth-child(odd) {
+    border-right: 1px solid #fff;
+    padding-right: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  & a.router-link-exact-active {
+    color: #42b983;
+    text-decoration: underline;
+  }
+}
+.welcome-message {
+  color: #fff;
+}
+.logout {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 5px;
+  padding: 5px;
+}

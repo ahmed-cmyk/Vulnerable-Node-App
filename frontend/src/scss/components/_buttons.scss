@@ -1,0 +1,24 @@
+.btn {
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0.3rem;
+
+  &-danger {
+    background: $danger;
+
+    &:hover {
+      background: $danger-hover;
+    }
+  }
+
+  &-primary {
+    background: $primary;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+}
