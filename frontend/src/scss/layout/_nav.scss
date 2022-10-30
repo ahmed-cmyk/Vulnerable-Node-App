@@ -11,7 +11,7 @@ nav {
     text-decoration: none;
   }
 
-  & a:nth-child(odd) {
+  & a:nth-child(odd):not(.login-button) {
     border-right: 1px solid #fff;
     padding-right: 0.5rem;
     margin-right: 0.5rem;

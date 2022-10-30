@@ -1,5 +1,15 @@
+.mx-auto {
+  margin: 0 auto;
+}
+
 .my-2 {
   margin-top: 2em;
+}
+
+.mt {
+  &-10 {
+    margin-top: 1.75rem;
+  }
 }
 
 .p-10 {

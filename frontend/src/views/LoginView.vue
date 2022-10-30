@@ -1,27 +1,33 @@
 <template>
-  <form @submit.prevent="login">
-    <h2>Login</h2>
+  <form class="login mx-auto" @submit.prevent="login">
+    <h1 class="font-xl bold">Login</h1>
+    <table>
+      <tr>
+        <td><label class="field-label" for="email">email</label></td>
+        <td>
+          <input
+            v-model="email"
+            class="field-input"
+            type="text"
+            name="email"
+            autocomplete="off"
+            required />
+        </td>
+      </tr>
+      <tr>
+        <td><label class="field-label" for="password">password</label></td>
+        <td>
+          <input
+            v-model="password"
+            class="field-input"
+            type="password"
+            name="password"
+            required />
+        </td>
+      </tr>
+    </table>
     <div class="field">
-      <input
-        v-model="email"
-        class="field-input"
-        type="text"
-        name="email"
-        autocomplete="off"
-        required />
-      <label class="field-label" for="email">email</label>
-    </div>
-    <div class="field">
-      <input
-        v-model="password"
-        class="field-input"
-        type="password"
-        name="password"
-        required />
-      <label class="field-label" for="password">password</label>
-    </div>
-    <div class="field">
-      <input class="field-submit" type="submit" value="Submit" />
+      <input class="btn btn-primary" type="submit" value="Submit" />
     </div>
     <router-link :to="{ name: 'forgot-password' }" class="link"
       >Forgot Password?</router-link

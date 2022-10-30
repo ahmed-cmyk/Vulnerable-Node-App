@@ -1,5 +1,3 @@
-const mongoose = require("mongoose");
-const User = require("../models/user.model");
 const connection = require("../services/db");
 
 const get = async (req, res) => {

@@ -21,4 +21,12 @@
       background: $primary-hover;
     }
   }
+
+  &-action {
+    background: $theme;
+
+    &:hover {
+      background: $theme-hover;
+    }
+  }
 }

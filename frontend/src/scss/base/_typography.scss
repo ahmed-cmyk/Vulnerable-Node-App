@@ -4,6 +4,16 @@
 
 // Font sizes
 
+.font {
+  &-lg {
+    font-size: 1.2rem;
+  }
+
+  &-xl {
+    font-size: 1.4rem;
+  }
+}
+
 .font-heading {
   font-size: 1.2rem;
 }

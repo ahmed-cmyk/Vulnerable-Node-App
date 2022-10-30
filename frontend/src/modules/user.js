@@ -28,7 +28,7 @@ export default {
       const res = await user.login(creds);
       if (!res) return false;
 
-      let token = res.data.authorisation.token ?? null;
+      let token = res.data.token ?? null;
 
       if (res.status === 200 && token) {
         context.commit("addToken", token);
