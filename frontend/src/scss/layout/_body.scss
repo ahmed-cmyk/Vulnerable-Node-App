@@ -19,3 +19,18 @@
 .p-10 {
   padding: 10px;
 }
+
+.float {
+  &-right {
+    float: right;
+  }
+
+  &-left {
+    float: left;
+  }
+}
+
+.base {
+  width: 80%;
+  margin: 1rem auto;
+}

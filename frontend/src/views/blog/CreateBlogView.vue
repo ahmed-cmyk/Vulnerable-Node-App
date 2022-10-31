@@ -1,27 +1,25 @@
 <template>
-  <form @submit.prevent="createBlog">
-    <h2>Create Blog</h2>
-    <div class="field">
+  <form @submit.prevent="createBlog" class="base form-basic">
+    <h1 class="font-xl bold">Create Blog</h1>
+    <div class="flex direction-col gap-10">
+      <label class="field-label" for="username">title</label>
       <input
         v-model="title"
         class="field-input"
         type="text"
         name="title"
         autocomplete="off" />
-      <label class="field-label" for="username">title</label>
     </div>
-    <div class="field">
+    <div class="flex direction-col gap-10">
+      <label class="field-label" for="body">body</label>
       <textarea
         v-model="body"
         id="body"
         name="body"
         rows="4"
         cols="50"></textarea>
-      <label class="field-label" for="body">body</label>
     </div>
-    <div class="field">
-      <input class="field-button field-submit" type="submit" value="submit" />
-    </div>
+    <button class="btn btn-primary" type="submit">submit</button>
   </form>
 </template>
 
@@ -48,11 +46,11 @@ export default {
         token: this.token,
       });
 
-      if (res.status === 201) {
+      if (res.status === 200) {
         this.$store.dispatch("setMessage", "Blog created successfully");
         this.$router.push({
           name: "blog-detail",
-          params: { id: res.data._id },
+          params: { id: res.data[0].id },
         });
       }
     },

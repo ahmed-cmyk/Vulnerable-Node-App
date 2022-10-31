@@ -39,6 +39,7 @@ const create = async (req, res) => {
     function (error, results, fields) {
       if (error) return res.status(400).json({ error: error.message });
 
+      req.params = { id: results["insertId"] };
       show(req, res);
     }
   );

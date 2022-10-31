@@ -1,5 +1,10 @@
 <template>
-  <main class="home">
+  <main class="base">
+    <div class="flex justify-end">
+      <router-link :to="{ name: 'blog-create' }">
+        <button class="btn btn-primary">Add new blog</button>
+      </router-link>
+    </div>
     <section class="blog_list" v-if="blogs.length">
       <div class="blog" v-for="blog in blogs" :key="blog.id">
         <router-link :to="{ name: 'blog-detail', params: { id: blog.id } }">{{

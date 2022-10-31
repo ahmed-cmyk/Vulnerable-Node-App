@@ -1,28 +1,42 @@
 <template>
-  <form @submit.prevent="editBlog">
-    <h2>Edit Blog</h2>
-    <div class="field">
-      <input
-        v-model="title"
-        class="field-input"
-        type="text"
-        name="title"
-        autocomplete="off" />
-      <label class="field-label" for="username">title</label>
-    </div>
-    <div class="field">
-      <textarea
-        v-model="body"
-        id="body"
-        name="body"
-        rows="4"
-        cols="50"></textarea>
-      <label class="field-label" for="body">body</label>
-    </div>
-    <div class="field">
-      <button class="field-button field-cancel" @click="cancel">cancel</button>
-      <input class="field-button field-submit" type="submit" value="submit" />
-    </div>
+  <form @submit.prevent="editBlog" class="form-basic">
+    <h1 class="font-xl bold">Edit Blog</h1>
+    <table>
+      <tr>
+        <td>
+          <label class="field-label" for="username">title</label>
+        </td>
+        <td>
+          <input
+            v-model="title"
+            class="field-input"
+            type="text"
+            name="title"
+            autocomplete="off" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="field-label" for="body">body</label>
+        </td>
+        <td>
+          <textarea
+            v-model="body"
+            id="body"
+            name="body"
+            rows="4"
+            cols="50"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button class="btn btn-danger" @click="cancel">cancel</button>
+          <button class="btn btn-primary" type="submit">submit</button>
+        </td>
+      </tr>
+    </table>
+    <div></div>
   </form>
 </template>
 
@@ -58,6 +72,7 @@ export default {
 
       if (status === 200) {
         this.$store.dispatch("setMessage", "Blog updated successfully");
+        this.$emit("toggle");
       }
     },
   },
