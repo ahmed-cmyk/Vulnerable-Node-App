@@ -47,27 +47,27 @@ const routes = [
       ),
   },
   {
-    path: "/blog/new",
-    name: "blog-create",
+    path: "/post/new",
+    name: "post-create",
     component: () =>
       import(
-        /* webpackChunkName: "blog-create" */ "../views/blog/CreateBlogView.vue"
+        /* webpackChunkName: "post-create" */ "../views/post/CreatePostView.vue"
       ),
   },
   {
-    path: "/blog/:id",
-    name: "blog-detail",
+    path: "/post/:id",
+    name: "post-detail",
     component: () =>
       import(
-        /* webpackChunkName: "blog-detail" */ "../views/blog/ShowBlogView.vue"
+        /* webpackChunkName: "post-detail" */ "../views/post/ShowPostView.vue"
       ),
   },
   {
-    path: "/blog/:id/edit",
-    name: "blog-edit",
+    path: "/post/:id/edit",
+    name: "post-edit",
     component: () =>
       import(
-        /* webpackChunkName: "blog-edit" */ "../views/blog/EditBlogView.vue"
+        /* webpackChunkName: "post-edit" */ "../views/post/EditPostView.vue"
       ),
   },
 ];

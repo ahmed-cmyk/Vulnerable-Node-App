@@ -41,7 +41,7 @@ export default {
       if (status === 201) {
         this.$emit("created");
         this.$store.dispatch("setMessage", "Comment added successfully");
-        // this.$store.dispatch("getComments", { blog_id: this.id });
+        // this.$store.dispatch("getComments", { post_id: this.id });
       }
     },
   },

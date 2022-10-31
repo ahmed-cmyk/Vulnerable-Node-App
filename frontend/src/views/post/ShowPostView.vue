@@ -1,17 +1,17 @@
 <template>
-  <main v-if="blog" class="detailView">
+  <main v-if="post" class="detailView">
     <section v-if="!editMode">
       <div class="flex justify-end">
         <button class="btn btn-primary" @click="toggleEdit">edit</button>
         <button class="btn btn-danger" @click="callDelete">delete</button>
       </div>
       <div class="card">
-        <h1 class="bold font-heading">{{ blog.title }}</h1>
-        <p>{{ blog.body }}</p>
+        <h1 class="bold font-heading">{{ post.title }}</h1>
+        <p>{{ post.body }}</p>
       </div>
     </section>
     <section v-else>
-      <EditBlogView :blog="blog" @toggle="toggleEdit" />
+      <EditPostView :post="post" @toggle="toggleEdit" />
     </section>
 
     <section class="my-2">
@@ -42,7 +42,7 @@
 
 <script>
 import CreateView from "@/views/comments/CreateView.vue";
-import EditBlogView from "./EditBlogView.vue";
+import EditPostView from "./EditPostView.vue";
 export default {
   data() {
     return {
@@ -53,8 +53,8 @@ export default {
     };
   },
   computed: {
-    blog() {
-      return this.$store.getters.getBlogById(this.id)[0];
+    post() {
+      return this.$store.getters.getPostById(this.id)[0];
     },
     comments() {
       return this.$store.getters.getComments;
@@ -68,7 +68,7 @@ export default {
   },
   created() {
     this.$store.dispatch("checkLocalStorage");
-    this.$store.dispatch("getBlogs", this.token);
+    this.$store.dispatch("getPosts", this.token);
     this.$store.dispatch("getComments", { post_id: this.id });
   },
   unmounted() {
@@ -83,17 +83,17 @@ export default {
       this.editMode = !this.editMode;
     },
     async callDelete() {
-      const status = await this.$store.dispatch("deleteBlog", {
+      const status = await this.$store.dispatch("deletePost", {
         id: this.id,
         token: this.token,
       });
       console.log(status);
       if (status === 200) {
-        this.$store.dispatch("setMessage", "Blog deleted successfully");
+        this.$store.dispatch("setMessage", "Post deleted successfully");
         this.$router.push({ name: "home" });
       }
     },
   },
-  components: { CreateView, EditBlogView },
+  components: { CreateView, EditPostView },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <form @submit.prevent="createBlog" class="base form-basic">
-    <h1 class="font-xl bold">Create Blog</h1>
+  <form @submit.prevent="createPost" class="base form-basic">
+    <h1 class="font-xl bold">Create Post</h1>
     <div class="flex direction-col gap-10">
       <label class="field-label" for="username">title</label>
       <input
@@ -40,16 +40,16 @@ export default {
     this.$store.dispatch("checkLocalStorage");
   },
   methods: {
-    async createBlog() {
-      const res = await this.$store.dispatch("createBlog", {
+    async createPost() {
+      const res = await this.$store.dispatch("createPost", {
         body: { id: this.id, title: this.title, body: this.body },
         token: this.token,
       });
 
       if (res.status === 200) {
-        this.$store.dispatch("setMessage", "Blog created successfully");
+        this.$store.dispatch("setMessage", "Post created successfully");
         this.$router.push({
-          name: "blog-detail",
+          name: "post-detail",
           params: { id: res.data[0].id },
         });
       }

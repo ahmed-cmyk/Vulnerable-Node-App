@@ -1,18 +1,18 @@
 <template>
   <main class="base">
     <div class="flex justify-end">
-      <router-link :to="{ name: 'blog-create' }">
-        <button class="btn btn-primary">Add new blog</button>
+      <router-link :to="{ name: 'post-create' }">
+        <button class="btn btn-primary">Add new post</button>
       </router-link>
     </div>
-    <section class="blog_list" v-if="blogs.length">
-      <div class="blog" v-for="blog in blogs" :key="blog.id">
-        <router-link :to="{ name: 'blog-detail', params: { id: blog.id } }">{{
-          blog.title
+    <section class="post_list" v-if="posts.length">
+      <div class="post" v-for="post in posts" :key="post.id">
+        <router-link :to="{ name: 'post-detail', params: { id: post.id } }">{{
+          post.title
         }}</router-link>
       </div>
     </section>
-    <div v-else>login to view blogs...</div>
+    <div v-else>login to view posts...</div>
   </main>
 </template>
 
@@ -20,14 +20,14 @@
 export default {
   created() {
     this.$store.dispatch("checkLocalStorage");
-    this.$store.dispatch("getBlogs", this.token);
+    this.$store.dispatch("getPosts", this.token);
   },
   computed: {
     token() {
       return this.$store.state.user.token;
     },
-    blogs() {
-      return this.$store.state.blog.blogs;
+    posts() {
+      return this.$store.state.post.posts;
     },
   },
 };

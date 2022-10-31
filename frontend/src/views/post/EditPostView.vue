@@ -1,6 +1,6 @@
 <template>
-  <form @submit.prevent="editBlog" class="form-basic">
-    <h1 class="font-xl bold">Edit Blog</h1>
+  <form @submit.prevent="editPost" class="form-basic">
+    <h1 class="font-xl bold">Edit Post</h1>
     <table>
       <tr>
         <td>
@@ -45,8 +45,8 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      title: this.blog.title,
-      body: this.blog.body,
+      title: this.post.title,
+      body: this.post.body,
     };
   },
   computed: {
@@ -55,7 +55,7 @@ export default {
     },
   },
   props: {
-    blog: Object,
+    post: Object,
   },
   created() {
     this.$store.dispatch("checkLocalStorage");
@@ -64,14 +64,14 @@ export default {
     cancel() {
       this.$emit("toggle");
     },
-    async editBlog() {
-      const status = await this.$store.dispatch("updateBlog", {
+    async editPost() {
+      const status = await this.$store.dispatch("updatePost", {
         body: { id: this.id, title: this.title, body: this.body },
         token: this.token,
       });
 
       if (status === 200) {
-        this.$store.dispatch("setMessage", "Blog updated successfully");
+        this.$store.dispatch("setMessage", "Post updated successfully");
         this.$emit("toggle");
       }
     },

@@ -1,13 +1,13 @@
 import axios from "axios";
 import store from "@/store/index";
 
-const blogsAPI = "http://localhost:4000/api/posts";
+const postsAPI = "http://localhost:4000/api/posts";
 
 export default {
   get: () =>
     axios({
       method: "GET",
-      url: blogsAPI,
+      url: postsAPI,
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-type": "application/json",
@@ -23,7 +23,7 @@ export default {
   create: (data, token) =>
     axios({
       method: "POST",
-      url: blogsAPI,
+      url: postsAPI,
       data: data,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -42,7 +42,7 @@ export default {
   update: (id, data, token) =>
     axios({
       method: "PATCH",
-      url: blogsAPI + `/${id}`,
+      url: postsAPI + `/${id}`,
       data: data,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -61,7 +61,7 @@ export default {
   delete: (id, token) =>
     axios({
       method: "DELETE",
-      url: blogsAPI + `/${id}`,
+      url: postsAPI + `/${id}`,
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: token,
