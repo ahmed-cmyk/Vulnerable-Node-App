@@ -3,6 +3,7 @@ const cors = require("cors");
 const connection = require("./src/services/db");
 const express = require("express");
 const postsRouter = require("./src/routes/posts.route");
+const productsRouter = require("./src/routes/products.route");
 const commentsRouter = require("./src/routes/comments.route");
 const usersRouter = require("./src/routes/users.route");
 const loginRouter = require("./src/controllers/login.controller");
@@ -21,6 +22,7 @@ app.use(tokenExtractor);
 
 app.use("/api/comments", commentsRouter);
 app.use("/api/posts", postsRouter);
+app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/forgot", forgetRouter);

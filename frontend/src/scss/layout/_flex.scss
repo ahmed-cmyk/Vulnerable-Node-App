@@ -25,3 +25,9 @@
     gap: 10px;
   }
 }
+
+.space {
+  &-between {
+    justify-content: space-between;
+  }
+}

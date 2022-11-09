@@ -46,6 +46,14 @@ export default {
 
       return false;
     },
+    async register(context, creds) {
+      const res = await user.register(creds);
+      if (!res) return false;
+
+      if (res.status === 200) return true;
+
+      return false;
+    },
     checkLocalStorage(context) {
       var token = window.localStorage.getItem("authToken");
 

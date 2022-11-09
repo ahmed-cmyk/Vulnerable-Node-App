@@ -4,10 +4,10 @@ import store from "@/store/index";
 const commentAPI = "http://localhost:4000/api/comments";
 
 export default {
-  get: (blog_id) =>
+  get: (comment_id) =>
     axios({
       method: "GET",
-      url: commentAPI + `/${blog_id}`,
+      url: commentAPI + `/${comment_id}`,
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-type": "application/json",

@@ -11,10 +11,14 @@ nav {
     text-decoration: none;
   }
 
-  & a:nth-child(odd):not(.login-button) {
+  & a:not(:last-of-type):not(.login-button) {
     border-right: 1px solid #fff;
     padding-right: 0.5rem;
     margin-right: 0.5rem;
+  }
+
+  & a:hover {
+    color: #42b983;
   }
 
   & a.router-link-exact-active {
@@ -32,4 +36,15 @@ nav {
   color: #fff;
   margin-left: 5px;
   padding: 5px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    color: #fff;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
 }

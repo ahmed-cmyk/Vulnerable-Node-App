@@ -1,0 +1,70 @@
+.market {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  & .listing {
+    margin: 1rem;
+
+    & img {
+      height: 500px;
+      width: 500px;
+      object-fit: cover;
+    }
+
+    &_details {
+      padding: 5px 10px;
+    }
+
+    &_img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &_overlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: top 1s ease;
+    }
+
+    &_img:hover .listing_overlay {
+      top: 0%;
+    }
+  }
+}
+
+.cart {
+  position: relative;
+
+  &-badge {
+    color: red;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    font-weight: bold;
+  }
+
+  &_item {
+    background: $very-light-gray;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+  }
+
+  & small {
+    color: #000;
+    font-weight: bold;
+  }
+
+  & select {
+    background: #fff;
+    padding: 5px 10px;
+  }
+}

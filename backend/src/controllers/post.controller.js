@@ -1,11 +1,6 @@
 const connection = require("../services/db");
 
 const get = async (req, res) => {
-  // const posts = await Post
-  //                 .find({})
-  //                 .populate({ path: 'author', select: 'username name -_id' })
-  //                 .sort({ createdAt: -1 })
-
   await connection.query(
     "SELECT * FROM `posts`",
     function (error, results, fields) {

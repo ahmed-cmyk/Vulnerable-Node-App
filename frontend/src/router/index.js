@@ -8,6 +8,26 @@ const routes = [
     component: HomeView,
   },
   {
+    path: "/merchandise",
+    name: "merchandise",
+    // route level code-splitting
+    // this generates a separate chunk (merchandise.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "merchandise" */ "../views/market/MarketView.vue"
+      ),
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    // route level code-splitting
+    // this generates a separate chunk (cart.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "cart" */ "../views/market/CartView.vue"),
+  },
+  {
     path: "/about",
     name: "about",
     // route level code-splitting
@@ -20,7 +40,13 @@ const routes = [
     path: "/login",
     name: "login",
     component: () =>
-      import(/* webpackChunkName: "login" */ "../views/LoginView.vue"),
+      import(/* webpackChunkName: "login" */ "../views/user/LoginView.vue"),
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/user/RegisterView.vue"),
   },
   {
     path: "/forgot-password",

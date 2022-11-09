@@ -18,9 +18,9 @@ export default {
   },
   actions: {
     async getComments(context, data) {
-      const { post_id } = data;
-      const res = await comments.get(post_id);
-      console.log(res);
+      const { comment_id } = data;
+      const res = await comments.get(comment_id);
+
       if (res.status === 200) {
         context.commit("setComments", res.comments);
       }

@@ -1,0 +1,41 @@
+.banner {
+  animation: slidein 2s;
+  background-color: #4bb543;
+  border-radius: 10px;
+  color: #fff;
+  margin: 5px auto;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  transform: translateX(10%);
+  width: 80%;
+  z-index: 2;
+
+  &-text {
+    animation: appear 3s;
+  }
+
+  &-error {
+    background-color: #e74c3c;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    transform: translate(10%, -100px);
+  }
+
+  100% {
+    transform: translate(10%, 0);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
