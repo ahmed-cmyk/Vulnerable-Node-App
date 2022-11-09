@@ -59,13 +59,11 @@ export default {
       return this.$store.getters.getCart;
     },
     totalPrice() {
-      if (this.items.length === 1 && this.items[0].quantity === 1) {
-        return this.items[0].price;
+      if (this.items.length === 1) {
+        return this.items[0].price * this.items[0].quantity;
       }
 
       return this.items.reduce((prev, curr) => {
-        console.log("prev", `${prev.price} ${prev.quantity}`);
-        console.log("curr", `${curr.price} ${curr.quantity}`);
         return prev + curr.price * curr.quantity;
       }, 0);
     },
