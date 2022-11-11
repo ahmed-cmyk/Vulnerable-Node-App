@@ -35,12 +35,8 @@ export default {
       return this.$store.state.user.user;
     },
   },
-  async created() {
-    const check = await this.$store.dispatch("checkLocalStorage");
-
-    if (check) {
-      this.$store.dispatch("autoLogin");
-    }
+  beforeMount() {
+    this.$store.dispatch("checkLocalStorage");
   },
   methods: {
     logout() {

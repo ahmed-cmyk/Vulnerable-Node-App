@@ -38,12 +38,6 @@ const create = async (req, res) => {
       show(req, res);
     }
   );
-  //   try {
-  //     const post = await Post.create({ title, body, author });
-  //     res.status(201).json(post);
-  //   } catch (error) {
-  //     res.status(400).json({ error: error.message });
-  //   }
 };
 
 const update = async (req, res) => {

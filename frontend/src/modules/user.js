@@ -33,6 +33,7 @@ export default {
       if (res.status === 200 && token) {
         context.commit("addToken", token);
         context.commit("setUser", {
+          id: res.data.user.id,
           name: res.data.user.name,
           email: res.data.user.email,
         });
@@ -56,16 +57,15 @@ export default {
     },
     checkLocalStorage(context) {
       var token = window.localStorage.getItem("authToken");
-
+      console.log("in local", token);
       if (token) {
         context.commit("addToken", token);
-        return true;
+        context.dispatch("autoLogin");
       }
-
-      return false;
     },
     autoLogin({ state, commit }) {
       const data = jwt_decode(state.token);
+      console.log(data);
       commit("setUser", data);
     },
     deleteToken({ commit }) {

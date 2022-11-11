@@ -1,6 +1,8 @@
 <template>
   <section class="base cart">
     <h1 class="font-xl bold">Cart</h1>
+    {{ user }}
+    {{ items }}
     <div
       class="flex space-between cart_item"
       v-for="(item, index) in items"
@@ -22,9 +24,14 @@
         <button class="btn btn-danger">Delete</button>
       </div>
     </div>
-    <h2 class="font-lg text-align-right">
-      <span class="bold">Total Price:</span> ${{ totalPrice }}
-    </h2>
+    <div class="text-align-center">
+      <h2 class="font-lg">
+        <span class="bold">Total Price:</span> ${{ totalPrice }}
+      </h2>
+      <button class="btn btn-primary checkout" @click="checkout">
+        Checkout
+      </button>
+    </div>
   </section>
 </template>
 
@@ -66,6 +73,24 @@ export default {
       return this.items.reduce((prev, curr) => {
         return prev + curr.price * curr.quantity;
       }, 0);
+    },
+    user() {
+      return this.$store.state.user.user;
+    },
+  },
+  methods: {
+    async checkout() {
+      let orders = this.items.map((obj) => [obj.id, obj.quantity]);
+
+      const status = await this.$store.dispatch("checkout", {
+        customer_id: this.user.id,
+        orders,
+      });
+
+      if (status === 200) {
+        this.$store.dispatch("setMessage", "Order was successful!");
+        this.$router.push({ name: "home" });
+      }
     },
   },
 };

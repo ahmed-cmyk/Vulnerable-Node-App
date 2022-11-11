@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  created() {
+  beforeMount() {
     this.$store.dispatch("checkLocalStorage");
     this.$store.dispatch("getPosts", this.token);
   },

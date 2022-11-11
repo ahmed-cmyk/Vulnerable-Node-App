@@ -9,17 +9,22 @@ loginRouter.post("/", async (req, res) => {
   await connection.query(
     "SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1",
     [email, password],
-    function (error, user, fields) {
+    (error, results) => {
       if (error) {
         return res.status(400).json({ error: "An Error Occured" });
       }
 
-      user = user[0];
+      if (!results.length) {
+        return res.status(400).json({ error: "Incorrect email or password" });
+      }
+
+      user = results[0];
 
       const userForToken = {
         username: user.username,
         email: user.email,
-        id: user._id,
+        name: user.name,
+        id: user.id,
       };
 
       const token = jwt.sign(userForToken, JWT_SECRET);
