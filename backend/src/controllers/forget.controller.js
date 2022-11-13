@@ -14,7 +14,7 @@ forgetRouter.post("/", async (req, res) => {
   await connection.query(
     "SELECT * FROM users WHERE email = ?",
     email,
-    (error, user, fields) => {
+    (error, user) => {
       if (error) {
         return res.status(400).json({
           error,

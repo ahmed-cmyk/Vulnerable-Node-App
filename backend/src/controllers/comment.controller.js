@@ -6,7 +6,7 @@ const get = async (req, res) => {
   await connection.query(
     "SELECT * FROM comments WHERE post_id = ?",
     [id],
-    function (error, comments, fields) {
+    (error, comments) => {
       if (error) return res.status(404);
 
       res.status(200).json({ comments, status: 200 });
@@ -20,7 +20,7 @@ const show = async (req, res) => {
   await connection.query(
     "SELECT * FROM comments WHERE id = ?",
     [id],
-    function (error, comment, fields) {
+    (error, comment) => {
       if (error) return res.status(404);
 
       res.status(201).json({ comment, status: 201 });
@@ -34,7 +34,7 @@ const store = async (req, res) => {
   await connection.query(
     "INSERT INTO comments (post_id, comment, author) VALUES(?,?,?)",
     [post_id, comment, author],
-    function (error, results, fields) {
+    (error, results) => {
       if (error) return res.status(404);
 
       req.body = results.insertId;

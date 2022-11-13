@@ -3,7 +3,7 @@
     <section v-if="!editMode">
       <div class="flex justify-end">
         <button class="btn btn-primary" @click="toggleEdit">edit</button>
-        <button class="btn btn-danger" @click="callDelete">delete</button>
+        <button class="btn btn-danger" @click="deletePost">delete</button>
       </div>
       <div class="card">
         <h1 class="bold font-heading">{{ post.title }}</h1>
@@ -82,7 +82,7 @@ export default {
     toggleEdit() {
       this.editMode = !this.editMode;
     },
-    async callDelete() {
+    async deletePost() {
       const status = await this.$store.dispatch("deletePost", {
         id: this.id,
         token: this.token,

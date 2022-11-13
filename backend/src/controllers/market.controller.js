@@ -6,7 +6,7 @@ const get = async (req, res) => {
   await connection.query(
     "SELECT * FROM order WHERE customer_id = ?",
     [id],
-    (error, results, fields) => {
+    (error, results) => {
       if (error) return res.status(400).json({ error: error });
 
       res.status(200).json(results);

@@ -9,7 +9,7 @@
       <router-link :to="{ name: 'cart' }">
         <div class="cart" v-if="this.$route.name === 'merchandise'">
           <font-awesome-icon icon="fa-solid fa-cart-shopping" />
-          <span class="cart-badge">0</span>
+          <span class="cart-badge">{{ cartItemCount }}</span>
         </div>
       </router-link>
       <div v-if="user">
@@ -33,6 +33,9 @@ export default {
     },
     user() {
       return this.$store.state.user.user;
+    },
+    cartItemCount() {
+      return this.$store.getters.getCart.length;
     },
   },
   beforeMount() {
